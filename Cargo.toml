@@ -1,33 +1,18 @@
 [package]
 name = "gitup"
 version = "0.2.0"  
-authors = ["Lucian <neuraluc@gmail.com>", "Daniil Krizhanovskyi <daniil.krizhanovskyi@hotmail.com>"]
+authors = ["Lucian <neuraluc@gmail.com>"]
 edition = "2021"
-description = "Gitup is a Rust CLI tool for checking, installing, and configuring Git on your system, now with profile management and backup/restore functionality. Forked from the original project by Lucian."
+description = "Gitup is a Rust CLI tool for checking, installing, and configuring Git on your system, now with profile management and backup/restore functionality."
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/dkrizhanovskyi/gitup"
-repository = "https://github.com/dkrizhanovskyi/gitup"
+homepage = "https://github.com/exaluc/gitup"
+repository = "https://github.com/exaluc/gitup"
 documentation = "https://docs.rs/gitup"
 categories = ["command-line-utilities", "development-tools::command-line"]
 keywords = ["git", "cli", "setup", "profile management", "backup", "restore"]
-
-# Original repository: https://github.com/exaluc/gitup
 
 [dependencies]
 serde = { version = "1.0", features = ["derive"] }
 toml = "0.8.19"
 dirs = "5.0.1"
-
-[build-dependencies]
-serde_derive = "1.0"
-
-[features]
-default = []
-
-[profile.release]
-opt-level = "z"  
-
-[[bin]]
-name = "gitup"
-path = "src/main.rs"
