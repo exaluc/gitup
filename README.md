@@ -1,102 +1,112 @@
-# Gitup - Enhanced Rust CLI for Git Configuration
+# Gitup
 
-Gitup is a Rust-based command-line tool designed to help users easily set up and manage Git configurations on their systems. This tool has been enhanced with additional features such as profile management, backup and restore functionality, and support for multiple operating systems.
+[Gitup](https://github.com/exaluc/gitup) is a simple Rust CLI tool designed to help you set up and configure Git on your system. This tool checks if Git is installed, installs it if necessary, and configures your Git user name and email.
+
+This project was originally developed by [Lucian BLETAN](https://github.com/exaluc). Recent enhancements, including profile management, backup/restore functionality, and cross-platform support, were added by [Daniil Krizhanovskyi](https://github.com/dkrizhanovskyi).
 
 ## Features
 
-- **Check Git Installation:** Verify if Git is installed on your system.
-- **Install Git:** Automatically install Git using the appropriate package manager for your OS (supports Windows, macOS, and Linux).
-- **Configure Git:** Set your Git user name and email globally.
-- **Profile Management:** Create, switch between, and manage multiple Git profiles.
-- **Backup and Restore:** Backup your Git configuration to a file and restore it later.
+- **Check Git Installation:** Gitup checks if Git is installed on your system.
+- **Install Git:** If Git is not installed, Gitup will prompt you to install it. Now supports multiple operating systems, including Debian/Ubuntu, Arch Linux, Almalinux/RockyLinux, Windows, and macOS.
+- **Configure Git:** Gitup allows you to set your Git user name and email globally.
+- **Profile Management:** Manage multiple Git profiles with ease (New feature).
+- **Backup and Restore:** Backup and restore your Git configuration (New feature).
+- **JSON Output:** Gitup supports JSON output for easy integration with other tools or scripts.
 
 ## Installation
 
-### Prerequisites
-
-Ensure that you have Rust installed on your system. You can install Rust using [rustup](https://rustup.rs/).
-
-### Building the Project
+To build Gitup, you'll need to have Rust installed on your system.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/dkrizhanovskyi/gitup.git
+   git clone https://github.com/exaluc/gitup.git
    ```
 2. Navigate to the project directory:
    ```bash
    cd gitup
    ```
-3. Build the project:
+3. Build the project using the command:
    ```bash
    cargo build --release
    ```
+   This will create an optimized binary in the `target/release/` directory.
 
 ## Usage
 
-### Basic Commands
+You can run the Gitup tool with various options:
 
-- **Check if Git is installed:**
-  ```bash
-  ./target/release/gitup --install
-  ```
-  
-- **Configure Git with user name and email:**
-  ```bash
-  ./target/release/gitup --config --user "Your Name" --email "your.email@example.com"
-  ```
-
-- **Create and use profiles:**
-  ```bash
-  ./target/release/gitup --create-profile "work" --user "Work User" --email "work@example.com"
-  ./target/release/gitup --use-profile "work"
-  ```
-
-- **Backup and restore Git configuration:**
-  ```bash
-  ./target/release/gitup --backup "backup.txt"
-  ./target/release/gitup --restore "backup.txt"
-  ```
-
-## Examples
-
-### Creating and Switching Profiles
-
-1. **Create a new profile:**
+1. **Basic Usage:**
    ```bash
-   ./target/release/gitup --create-profile "personal" --user "John Doe" --email "john.doe@example.com"
+   ./target/release/gitup
    ```
+   This command will check if Git is installed and, if not, prompt you to install it. It will then ask you to configure Git with your name and email.
 
-2. **Switch to an existing profile:**
+2. **Provide Git User Information via Command-Line Arguments:**
    ```bash
-   ./target/release/gitup --use-profile "work"
+   ./target/release/gitup --user "Your Name" --email "your.email@example.com"
    ```
+   This command allows you to specify your Git user name and email directly via the command line.
 
-### Backup and Restore Configuration
-
-1. **Backup your current configuration:**
+3. **JSON Output:**
    ```bash
-   ./target/release/gitup --backup "git_backup.txt"
+   ./target/release/gitup --json
    ```
+   Use this option to get the current Git configuration in JSON format.
 
-2. **Restore your configuration from a backup:**
+4. **Profile Management:**
+   - **Create a new profile:**
+     ```bash
+     ./target/release/gitup --create-profile "work" --user "Work User" --email "work@example.com"
+     ```
+   - **Switch to an existing profile:**
+     ```bash
+     ./target/release/gitup --use-profile "work"
+     ```
+
+5. **Backup and Restore Configuration:**
+   - **Backup your current configuration:**
+     ```bash
+     ./target/release/gitup --backup "git_backup.txt"
+     ```
+   - **Restore your configuration from a backup:**
+     ```bash
+     ./target/release/gitup --restore "git_backup.txt"
+     ```
+
+## Example
+
+1. **Running with Prompts:**
    ```bash
-   ./target/release/gitup --restore "git_backup.txt"
+   ./target/release/gitup
    ```
+   - If Git is not installed, Gitup will prompt you to install it.
+   - After installation, it will ask for your Git user name and email.
+
+2. **Running with Arguments:**
+   ```bash
+   ./target/release/gitup --user "Jane Doe" --email "jane.doe@example.com"
+   ```
+   - Gitup will configure Git with the provided user name and email.
+
+3. **Getting JSON Output:**
+   ```bash
+   ./target/release/gitup --json
+   ```
+   - Gitup will output the current Git user name and email in JSON format.
+
+## OS Support
+
+- Debian/Ubuntu
+- Arch Linux (New)
+- Almalinux/RockyLinux (New)
+- Windows (New)
+- MacOS (New)
 
 ## Contributing
 
-This project was originally developed by Lucian and has been enhanced by Daniil Krizhanovskyi. Contributions are welcome! Please open an issue or submit a pull request if you have any ideas for improvements or if you've found a bug.
+This project was originally created by [Lucian BLETAN](https://github.com/exaluc), and enhanced by [Daniil Krizhanovskyi](https://github.com/dkrizhanovskyi). Feel free to open issues or submit pull requests if you want to contribute to the project.
 
-## License
+## Authors
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Original project by [Lucian](https://github.com/exaluc/gitup).
-- Enhancements by [Daniil Krizhanovskyi](https://github.com/dkrizhanovskyi/gitup).
-
-## Author
-
-- Lucian BLETAN - [GitHub](https://github.com/exaluc)
-- Daniil Krizhanovskyi - [GitHub](https://github.com/dkrizhanovskyi)
+- **Original Author:** [Lucian BLETAN](https://github.com/exaluc)
+- **Enhancements by:** [Daniil Krizhanovskyi](https://github.com/dkrizhanovskyi)
